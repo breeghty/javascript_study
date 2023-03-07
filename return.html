@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수</title>
+</head>
+<body>
+    <script>
+        function account(value,bool){
+            let result;
+            if(bool == true){
+                result = value*0.9-1.5;
+            }else result = value*0.9;
+
+            return(console.log(result.toFixed(1)));
+        }
+
+        account(70,false);
+        account(10,true);
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+<meta charset="UTF-8">
+<title>티스토리 홈입니다.</title>
+<style>
+img {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+    <img id="myImage" src="https://via.placeholder.com/200" draggable="true">
+    <script>
+    var img = document.getElementById('myImage');
+
+    img.addEventListener('dragstart', function(event) {
+        // Set the drag data (the image URL)
+        event.dataTransfer.setData('text/plain', img.src);
+
+        // Set the drag image (the image itself)
+        event.dataTransfer.setDragImage(img, 0, 0);
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="scroll.css">
+</head>
+<body>
+    <div class="box">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+        Ipsam numquam eveniet, distinctio nobis nulla hic obcaecati nihil omnis 
+        id aspernatur nesciunt ut ea amet earum, enim dolorum nisi ducimus facilis.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+        Ipsam numquam eveniet, distinctio nobis nulla hic obcaecati nihil omnis 
+        id aspernatur nesciunt ut ea amet earum, enim dolorum nisi ducimus facilis.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+        Ipsam numquam eveniet, distinctio nobis nulla hic obcaecati nihil omnis 
+        id aspernatur nesciunt ut ea amet earum, enim dolorum nisi ducimus facilis.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+        Ipsam numquam eveniet, distinctio nobis nulla hic obcaecati nihil omnis 
+        id aspernatur nesciunt ut ea amet earum, enim dolorum nisi ducimus facilis.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+        Ipsam numquam eveniet, distinctio nobis nulla hic obcaecati nihil omnis 
+        id aspernatur nesciunt ut ea amet earum, enim dolorum nisi ducimus facilis.
+    </div>
+    <div class="note">
+        
+    </div>
+
+    <script>
+
+        let scrollBox = document.querySelector('.box');
+        
+        scrollBox.addEventListener('scroll',function(){
+            if((scrollBox.scrollTop + scrollBox.clientHeight) == (scrollBox.scrollHeight)){
+                alert("약관을 전부 읽었습니다.");
+            }
+
+        
+            
+        });
+
+        document.querySelector('html').scrollHeight;
+        document.querySelector('html').clientHeight;
+        window.scrollY;//현재페이지 
+    </script>
+</body>
+</html>

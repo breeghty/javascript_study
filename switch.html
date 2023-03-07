@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h4>물에 빠지면 누구 먼저 구할래?</h4>
+        <button>나</button>
+        <button>갱얼쥐</button>
+        <button>대리님</button>
+    </div>
+    
+
+    <script>
+        document.querySelector('.container').addEventListener('click',function(e){
+            let text = e.target.innerHTML;
+            console.log(text);
+
+            switch(text){
+                case '나':
+                    alert("자신을 정말 좋아하시는군요.");
+                    break;
+                case '갱얼쥐':
+                    alert("강아지를 좋아하시는 군요");
+                    break;
+                case '대리님':
+                    alert("대리님을 좋아하시는 군요");
+                    break;
+                default:
+                    alert("버튼을 다시 눌러주세요");
+            }
+        });
+    </script>
+</body>
+</html>

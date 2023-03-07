@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <script>
+            document.querySelector('html').addEventListener('click',function(e){
+                //내가 실제로 누른 게 까만배경이면 모달창 닫아주세요!!!
+
+                if(e.target == document.querySelector('.black-bg')){
+                    document.querySelector('.black-bg').classList.remove('show-modal');
+                }
+            });
+            //e.target: 유저가 실제로 누른 것. 이벤트가 발생한 곳.
+            //e.currentTarget;//이벤트리스너 달린 곳 = this유사
+            //e.preventDefault(); 이벤트의 기본동작 막아줌
+            //e.stopPropagation(); 상위요소로 이벤트 버블링 막아줌.
+        </script>
+</body>
+</html>

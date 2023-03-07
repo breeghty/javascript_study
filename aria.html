@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta>
+    <title>더 나은 웹을 만드는 브리티웹</title>
+    <meta name="description" content="더 나은 노력으로 더 나은 웹을 만드는 웹 에이전시 브리티웹입니다.
+    웹을 기획하고 디자인하며 개발하는 회사입니다.">
+    <meta name="keyword" content="Web, Publisher, front-end, Markup developer, UX, UI, 웹퍼블리셔, 웹 에이전시">
+    <meta name="author" content="soyoung 소영">
+</head>
+<body>
+    <main>메인 콘텐츠</main>
+    <div role="main"></div>
+    <button type="button" class="button" title="메뉴 닫기" aria-label="메뉴 닫기">
+        <span class="close" aria-hidden="true">X</span>
+    </button>
+    <a href="#" role="button" aria-haspopup="dialog" aria-pressed="false">
+        <figure>
+            <img src="./1.jpg" alt="">
+            <figcaption>서울 경복궁</figcaption>
+            <!-- figcaption이 있다면 alt에 이미지 설명을 넣지 않아도 좋다. -->
+        </figure>
+    </a>
+
+    <div role="dialog" aria-modal="true" aria-labelledby="title1">
+        <h3 id="title1">서울 경복궁</h3>
+    </div>
+    <!-- aria-modal: 비모달 형태일 때 true값을 부여 -->
+
+    <input type="text" aria-labelledby="tip">
+    <div role="tooltip" id="tip">영문으로 입력하세요.</div>
+
+    <nav role="menubar">
+        <ul role="menu">
+            <li role="menuitem">회사소개</li>
+            <li role="menuitem">회사연혁</li>
+            <li role="menuitem">오시는길</li>
+        </ul>
+    </nav>
+    <ul role="menu">
+        <li role="menuitem"></li>
+    </ul>
+</body>
+</html>

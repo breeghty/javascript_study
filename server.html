@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/sdfsdc" method="post">
+        
+    </form>
+    <script
+    src="https://code.jquery.com/jquery-3.6.3.min.js"
+    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+    crossorigin="anonymous"></script>
+    <script>
+       /*  //ajax get
+        $.get('https://codingapple.github.io/hello.txt')
+        .done(function(data){
+            //성공시
+            console.log(data);
+            //서버에서 받아온 데이터는 == data
+        }).fail(function(){
+            //실패시
+            console.log("실패");
+        })
+
+        //ajax post
+        $.post('https://codingapple.github.io/hello.txt',{name: 'kim'})
+        .done(function(data){
+            console.log(data);
+            //서버에서 받아온 데이터는 == data
+        }); */
+
+
+        $.get('https://codingapple1.github.io/price.json')
+        .done(function(data){
+            console.log(data.price);
+        }).fail(function(){
+            console.log(실패);
+        });
+
+        fetch('https://codingapple1.github.io/price.json')
+        .then(res => res.json()) //받아온 json을 object로 바꿔주는 기능.(jquery는 자동변환)
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+
+
+
+    </script>
+</body>
+</html>

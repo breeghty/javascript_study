@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤 위치에 따라 변하는 UI</title>
+    <style>
+        .card-background{
+            height: 3000px;
+            margin-top: 800px;
+            margin-bottom: 1600px;
+            
+        }
+        .card-box{
+            position:sticky;
+            top: 200px;
+            margin-top: 200px;
+            /* 부모요소div가 끝날때까지 지속 */
+        }
+        .card-box img{
+            display: block;
+            margin:0 auto;
+            max-width:80%;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-background">
+        <div class="card-box">
+            <img src="photo_1.png" alt="">
+        </div>
+        <div class="card-box">
+            <img src="photo_2.png" alt="">
+        </div>
+        <div class="card-box">
+            <img src="photo_3.png" alt="">
+        </div>
+    </div>
+    <!-- script -->
+    <script
+    src="https://code.jquery.com/jquery-3.6.3.min.js"
+    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+    crossorigin="anonymous"></script>
+    <script>
+        $(window).scroll(function(){
+            var height = $(window).scrollTop();
+            console.log(height);
+
+            //800~1300까지 스크롤바 내리면 첫째카드의 opacity 1_0서서히 변경
+            var y = (-1/500)*height + (115/50);
+            $('.card-box').eq(0).css('opacity',y);
+            //900~1100까지 스크롤 바 내리면 배율이 1~0.8로 서서히 변경
+            var size = (-1/5000)*height + (565/500);
+            $('.card-box').eq(0).css('transform','scale('+size+')');
+
+        })
+    </script>
+</body>
+</html>

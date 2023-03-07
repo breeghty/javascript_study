@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<style>
+    .nav-link.orange{
+        color:orange;
+    }
+    .tab-content{
+        display: none;
+    }
+    .tab-content.show{
+        display:block;
+    }
+</style>
+<body>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="#">Product</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Information</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Shipping</a>
+        </li>
+    </ul>
+    <div class="tab-content" data-id="0">
+        <p>상품설명입니다. Product</p>
+    </div>
+    <div class="tab-content"  data-id="1">
+        <p>스펙설명입니다. Information</p>
+    </div>
+    <div class="tab-content"  data-id="2">
+        <p>배송정보입니다. Shipping</p>
+    </div>
+
+
+    <!-- script -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+crossorigin="anonymous"></script>
+    <script>
+        /*
+버튼0 누르면
+- 모든 버튼에 붙은 orange 클래스 명 제거
+- 버튼 0에 orange 클래스명 추가
+- 모든 div에 붙은 show 클래스명 제거
+- div show클래스명 추가
+*/ 
+/* for(let i = 0; i<$('.nav-link').length; i++){
+    $('.nav-link').eq(i).on('click',function(){
+        openTab(i);
+    });
+} */
+
+    function openTab(index){
+        $('.nav-link').removeClass('orange');
+        $('.tab-content').removeClass('show');
+        $('.nav-link').eq(index).addClass('orange');
+        $('.tab-content').eq(index).addClass('show');
+    }
+
+    //이벤트버블링
+    $('.nav-tabs').click(function(e){
+        //지금 누른게 버튼0이면 탭열기(0)
+        if(e.target == document.querySelectorAll('.nav-link')[0]){
+            //탭열기(0)
+        }
+    })
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>

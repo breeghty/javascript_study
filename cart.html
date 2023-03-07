@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+
+        </div>
+    </div>
+
+    <div class="container">
+        <button class="btn btn-danger" id="more">더보기</button>
+    </div>
+
+    <div class="container">
+        <button class="btn btn-danger" id="title">다나가 순으로 정렬</button>
+    </div>
+    <div class="container">
+        <button class="btn btn-danger" id="price">6만원 이하 상품만 보기</button>
+    </div>
+    
+<!-- script -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+    <script>
+        var products =[
+        {id:0, price: 70000, title: 'Blossom Dress'},
+        {id:1, price: 50000, title: 'Springfield Shirt'},
+        {id:2, price: 60000, title: 'Black Monastery'}
+    ];
+ //6만원 이하 상품만 보기
+    $('#price').click(function(){
+            //상품 다나가 순으로 정렬
+            let new_products = products.filter(function(a){
+                return a.price <= 60000;
+            });
+            document.querySelector('.row').innerHTML = '';
+            new_products.forEach((data)=>{
+                let htmlContent = `<div class='col-sm-4'>
+                                    <img src='https://via.placeholder.com/600' class='w-100'>
+                                    <h5>${data.title}</h5>
+                                    <p>가격 : ${data.price}</p>
+                                </div>`;
+                document.querySelector('.row').insertAdjacentHTML('beforeend', htmlContent);
+            });
+            
+        });
+
+
+    $('#title').click(function(){
+        //상품 가나다 순으로 정렬
+        products.sort(function(a,b){
+            if(a.title >= b.title){
+                return -1
+            }else if(a.title < b.title){
+                return 1
+            }
+        });
+        document.querySelector('.row').innerHTML = '';
+        products.forEach((data)=>{
+            let htmlContent = `<div class='col-sm-4'>
+                                <img src='https://via.placeholder.com/600' class='w-100'>
+                                <h5>${data.title}</h5>
+                                <p>가격 : ${data.price}</p>
+                            </div>`;
+            document.querySelector('.row').insertAdjacentHTML('beforeend', htmlContent);
+        });
+        
+    });
+
+    // 원하는 자료만 필터링.
+    var num = [7,3,5,2,40];
+    var new_arr = num.filter(function(a){
+        return a<4;
+    });
+    console.log(num);
+
+    //sort는 원본을 변형.
+    //filter는 원본 변형x
+
+    var numMultiply = num.map(function(a){
+        return a*4
+    });
+    console.log(numMultiply);
+
+    
+    /* let htmlContent = `<div class='col-sm-4'>
+                            <img src='https://via.placeholder.com/600' class='w-100'>
+                            <h5>Card title</h5>
+                            <p>가격 : 70000</p>
+                        </div>`;
+    for(let i=0;i<3;i++){
+        document.querySelector('.row').insertAdjacentHTML('beforeend', htmlContent);
+    }
+ */
+
+    localStorage.clear();
+    //변수는 새로고침 할때마다 다시 원점으로 돌아간다.
+
+    products.forEach((data)=>{
+        let htmlContent = `<div class='col-sm-4'>
+                            <img src='https://via.placeholder.com/600' class='w-100'>
+                            <h5>${data.title}</h5>
+                            <p>가격 : ${data.price}</p>
+                            <button class='buy'>구매</button>
+                        </div>`;
+        document.querySelector('.row').insertAdjacentHTML('beforeend', htmlContent);
+    });
+
+// object를 받아 상품명과 가격이 담긴 박스를 생성하는 함수
+    function itemMaker(obj){
+        obj.forEach((item)=>{
+            let htmlContent = `<div class='col-sm-4'>
+                            <img src='https://via.placeholder.com/600' class='w-100'>
+                            <h5>${item.title}</h5>
+                            <p>가격 : ${item.price}</p>
+                        </div>`;
+            document.querySelector('.row').insertAdjacentHTML('beforeend', htmlContent);
+        });
+    }
+    //한번 클릭시 상품 3개 더보기, 두번 클릭시 3개 더보기.
+    let clickCount = 0;
+    $('#more').click(function(){
+        clickCount++;
+        if(clickCount == 1){
+            $.get('https://codingapple1.github.io/js/more1.json')
+        .done(function(data){
+            // console.log(data);
+            // console.log(data[0].price);
+            itemMaker(data);
+        }).fail(function(){
+            console.log("error");
+        });
+        }else if(clickCount == 2){
+            $.get('https://codingapple1.github.io/js/more2.json')
+            .done(function(data){
+                // console.log(data);
+                // console.log(data[0].price);
+                itemMaker(data);
+                }).fail(function(){
+                console.log("error");
+            })
+            //더보기버튼 사라지기
+            document.getElementById('more').style.display = 'none';
+        }
+        
+    })
+
+    //구매버튼 누르면 localStorage에 상품명 저장하기
+    //상품명 담아두는 배열 만들기
+    let product_arr = [];
+    
+    for(let i = 0; i<3;i++){
+        $('.buy').eq(i).click(function(){
+        var proTitle = $('.buy').eq(i).prev().prev().text();
+        //배열에 상품 추가하기
+        if(product_arr.includes(proTitle)){
+            console.log('이미 존재합니다.');
+        }else{
+            product_arr.push(proTitle);
+            var str_product_arr = JSON.stringify(product_arr);
+            localStorage.setItem('상품명',str_product_arr);
+        }
+    });
+    }
+    
+    
+    
+    
+
+    let array = [7,3,5,2,30];
+    array.sort();
+    console.log(array);//문자순으로 정렬
+    array.sort(function(a,b){
+        return a-b;
+    })
+    console.log(array);
+    //return 오른쪽이 양수면 a를 오른쪽으로, return 오른쪽이 음수면 b를 오른쪽으로
+    
+
+    localStorage.setItem('name', 'Minji');//문자또는 숫자 저장
+    localStorage.getItem('name');//저장해 놨던 자료를 출력가능.
+    // localStorage.removeItem('이름');//저장해 놨던 자료를 삭제
+
+    //localstorage에 arr,obj저장
+    var arr = [1,2,3];
+    var newArr = JSON.stringify(arr);//json화하여 문자로 저장
+
+    localStorage.setItem('num', newArr);
+    //newArr는 문자이다. 어레이가 아니다.
+
+    //json을 다시 obj,arr로 바꾸기
+    console.log(JSON.parse(localStorage.getItem('num')));
+
+
+    //데이터 수정
+
+
+    </script>
+
+</body>
+</html>
