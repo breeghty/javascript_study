@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  <script defer src="index.js"></script>
+
+  <style>
+    * {margin: 0;padding: 0;}
+    html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, tbody, tfoot, thead, tr, th, td{margin:0;padding:0;}
+    h1, h2, h3, h4, h5, h6 {font-weight: 700; font-size: inherit;}
+    a {color: inherit; text-decoration: inherit;}
+    img {vertical-align: middle;}
+    a img {border: none;}
+    li {list-style: none;}
+    address, em, i {font-style: normal;}
+    /* a:focus {outline: none} */
+    /* button:focus {outline: none} */
+    div.allWrap{
+      width: 100%;
+    }
+    section{
+      width: 100%;
+    }
+    .first{
+      background:steelblue;
+    }
+    ul{
+      width: 80%; margin: 0 auto;
+    }
+    ul li{
+      width: 100%; height: 60vh;
+      margin-top: 10px;
+      background:yellowgreen;
+    }
+    .second{
+      background:sandybrown;
+    }
+    .third{
+      background:seagreen;
+    }
+    p{
+      position: fixed; left: 50%; bottom: 50px;
+      transform: translateX(-50%);
+      background: pink;
+      text-align: center; padding: 20px; 
+      font-size: 50px; font-weight: bold;
+    }
+    p > span{
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="allWrap">
+    <p>
+      <span class="num">01</span>
+      <span class="text">first</span>
+    </p>
+    <section class="first">
+      첫번째영역
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </section>
+    <section class="second">
+      두번째영역
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <!-- <p>01<br>second</p> -->
+    </section>
+    <section class="third">
+      세번째영역
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <!-- <p>01<br>third</p> -->
+    </section>
+  </div>
+
+
+</body>
+</html>
