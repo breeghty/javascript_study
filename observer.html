@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            margin-top: 1000px;
+            opacity:0;
+            transition: all 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>안녕하세요</h1>
+    </div>
+    <div>
+        <h1>오늘은 2023년 3월 12일</h1>
+    </div>
+    <div>
+        <h1>날씨는 흐립니다.</h1>
+    </div>
+    <div>
+        <h1>좋은 하루 되세용</h1>
+    </div>
+    <script>
+        let observer = new IntersectionObserver((e)=>{
+            e.forEach((box)=>{
+                if(box.isIntersecting){
+                    box.target.style.opacity=1;
+                }else{
+                    box.target.style.opacity=0;
+                }
+                // box.intersectionratio//화면에 해당 요소가 몇 퍼센트 보이는지 표시해준다.
+            })
+        });
+        let div = document.querySelectorAll('div');
+        observer.observe(div[0]);
+        observer.observe(div[1]);
+        observer.observe(div[2]);
+        observer.observe(div[3]);
+    </script>
+</body>
+</html>
